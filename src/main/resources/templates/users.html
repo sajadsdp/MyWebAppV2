@@ -5,44 +5,44 @@
     <title>Manage Users</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
-<body>
+<body class="lead bg-secondary">
 <div class="container-fluid text-center">
-    <div><h2>Manage Users</h2></div>
+    <div class="text-light"><h2>Manage Users</h2></div>
     <div class="m-2">
-        <a class="h3" th:href="@{/users/new}">Add New User</a>
+        <a th:href="@{/users/new}"><button type="button" class="btn btn-light text-success btn-lg m-2" disabled> +Add New User </button></a>
     </div>
     <div th:if="${massage}" class="alert alert-success text-center">
         [[${massage}]]
     </div>
     <div>
-        <table class="table table-bordered">
+        <table class="table table-bordered p-4 mt-4  container-fluid text-center shadow text-center">
             <thead>
-                <tr>
+                <tr class="bg-dark text-light lead">
                     <th>ID</th>
                     <th>E-mail</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Enabled</th>
                     <th>Add New Post</th>
-                    <th></th>
+                    <th>Controller</th>
                 </tr>
             </thead>
 
             <tbody>
             <th:block th:each="user : ${ListUsers}">
-                <tr>
+                <tr class="bg-light m-2">
                     <td>[[${user.id}]]</td>
                     <td>[[${user.email}]]</td>
                     <td>[[${user.firstName}]]</td>
                     <td>[[${user.lastName}]]</td>
                     <td>[[${user.enable}]]</td>
                     <td>
-                        <a class="h2" th:href="@{'/posts/new/'+${user.id}}">+</a>
+                        <a th:href="@{'/posts/new/'+${user.id}}"><button type="button" class="btn btn-success btn-lg m-2" disabled> + </button></a>
                     </td>
                     <td>
-                        <a class="me-3" th:href="@{'/users/edit/' + ${user.id}}">Edit</a>
-                        <a th:href="@{'/users/delete/' + ${user.id}}">Delete</a>
-                        <a class="ms-3" th:href="@{'/posts/' + ${user.id}}">Posts</a>
+                        <a th:href="@{'/users/edit/' + ${user.id}}"><button type="button" class="btn btn-warning text-light btn-lg m-2" disabled> Edit </button></a>
+                        <a th:href="@{'/users/delete/' + ${user.id}}"><button type="button" class="btn btn-danger btn-lg m-2" disabled> Delete </button></a>
+                        <a th:href="@{'/posts/' + ${user.id}}"><button type="button" class="btn btn-info text-light btn-lg m-2" disabled> Post </button></a>
                     </td>
                 </tr>
             </th:block>

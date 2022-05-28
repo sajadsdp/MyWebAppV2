@@ -1,5 +1,7 @@
 package com.comp.mywebappv2.post;
 
+import com.comp.mywebappv2.user.User;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,11 +14,15 @@ public class Post {
     @Column(nullable = false, length = 50, name = "text_post")
     private String text;
 
-    private String uid;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User uid;
 
-    public String getUid() { return uid; }
+    public User getUid() {
+        return uid;
+    }
 
-    public void setUid(String uid) {
+    public void setUid(User uid) {
         this.uid = uid;
     }
 

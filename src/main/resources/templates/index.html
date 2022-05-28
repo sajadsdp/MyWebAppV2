@@ -5,11 +5,12 @@
     <title>Welcome</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
-<body>
-<div class="container-fluid text-center">
-    <h1>Welcome</h1>
-    <div><a class="h2" th:href="@{/users}">Manage Users</a></div>
-    <div><a class="h2" th:href="@{/posts}">Manage Posts</a></div>
+<body class="container">
+<div class="p-4 mt-3 container-fluid text-center shadow bg-secondary">
+    <h1 class="display-1">Hi...</h1>
+    <p class="lead">welcome this is my first application.</p>
+    <a th:href="@{/users}"><button type="button" class="btn btn-primary btn-lg m-2" disabled>Manage Users</button></a>
+    <a th:href="@{/posts}"><button type="button" class="btn btn-primary btn-lg m-2" disabled>Manage Posts</button></a>
 </div>
 
 </body>

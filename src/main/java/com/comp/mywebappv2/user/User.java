@@ -1,6 +1,9 @@
 package com.comp.mywebappv2.user;
 
+import com.comp.mywebappv2.post.Post;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="users")
@@ -22,6 +25,10 @@ public class User {
     private String lastName;
 
     private boolean enable;
+
+    @OneToMany(mappedBy = "uid",cascade = CascadeType.ALL)
+    private Set<Post> posts;
+
 
     public boolean isEnable() {
         return enable;

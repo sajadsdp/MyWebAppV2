@@ -18,6 +18,7 @@
                 <div>
                     <input  type="text" th:field="*{text}" class="form-control " required minlength="3" maxlength="50"
                             style="max-height: 300px; min-height: 100px;"/>
+
                     <h:inputText
                             th:value="*{uid}"
                             th:rendered="${userId}"
@@ -37,8 +38,6 @@
 <script type="text/javascript">
     function cancelForm(){
         window.location="[[@{/users}]]";
-    }
-    function uidSet(){
     }
 </script>
 </body>
